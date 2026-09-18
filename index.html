@@ -3,70 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هدية خاصة</title>
+    <title>إهداء خاص وعصري ❤️</title>
     <style>
-        body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-            height: 100vh;
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Tahoma', sans-serif;
+            font-family: 'Cairo', 'Tahoma', sans-serif;
             overflow: hidden;
+            position: relative;
         }
+
+        /* خلفية القلوب المتحركة */
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+            z-index: 0;
+            user-select: none;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
         .card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
             text-align: center;
-            max-width: 400px;
+            max-width: 420px;
             width: 90%;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.5s ease;
         }
+
         h1 {
             color: #d63384;
-            margin-bottom: 20px;
-            font-size: 24px;
+            margin-bottom: 15px;
+            font-size: 26px;
+            font-weight: 700;
         }
+
         p {
-            color: #555;
-            font-size: 16px;
-            margin-bottom: 30px;
+            color: #444;
+            font-size: 17px;
+            margin-bottom: 35px;
+            line-height: 1.6;
         }
+
         .buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
             position: relative;
+            min-height: 50px;
         }
+
         button {
-            padding: 10px 25px;
+            padding: 12px 30px;
             font-size: 16px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+
         #yesBtn {
-            background-color: #ff4d6d;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
             color: white;
+            z-index: 2;
         }
+
         #yesBtn:hover {
-            background-color: #e43f5e;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.4);
         }
+
         #noBtn {
-            background-color: #ccc;
-            color: #333;
+            background-color: #e0e0e0;
+            color: #555;
             position: absolute;
+            right: 20%;
+            z-index: 1;
         }
+
         .hidden-message {
             display: none;
             margin-top: 20px;
             color: #2b9348;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 19px;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -74,35 +131,60 @@
 
     <div class="card">
         <h1>إلى الشخص الأغلى ❤️</h1>
-        <p>هل تقبلين أن تكوني جزءاً أجمل من كل أيامي القادمة؟</p>
+        <p>هل تقبلين أن تكوني جزءاً أجمل من كل أيامي القادمة، وأن نبقى معاً دائماً؟</p>
         
-        <div class="buttons">
+        <div class="buttons" id="btnContainer">
             <button id="yesBtn" onclick="showLove()">نعم بالتأكيد ❤️</button>
-            <button id="noBtn" onmouseover="moveButton()">لا</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">لا</button>
         </div>
 
         <div id="loveMessage" class="hidden-message">
-            تم تسجيل الإجابة بنجاح! أحبكِ جداً وعسى أن نبقى معاً دائماً 🥰✨
+            تم قبول الطلب بنجاح! 🥰✨<br>أنتِ أجمل اختيار في عمري كله.
         </div>
     </div>
 
     <script>
+        // توليد قلوب متحركة في الخلفية تلقائياً
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+        setInterval(createHeart, 400);
+
+        // حركة هروب زر "لا" بذكاء ليبقى داخل الشاشة
         function moveButton() {
             const noBtn = document.getElementById('noBtn');
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 100);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 100);
+            const card = document.querySelector('.card').getBoundingClientRect();
+            
+            // حساب مساحات عشوائية داخل نافذة المتصفح مع ضمان عدم خروجه كلياً
+            const maxX = window.innerWidth - noBtn.offsetWidth - 40;
+            const maxY = window.innerHeight - noBtn.offsetHeight - 40;
+            
+            const randomX = Math.max(20, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(20, Math.floor(Math.random() * maxY));
+
             noBtn.style.position = 'fixed';
-            noBtn.style.left = x + 'px';
-            noBtn.style.top = y + 'px';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
         }
 
+        // عند الضغط على نعم
         function showLove() {
             document.getElementById('yesBtn').style.display = 'none';
             document.getElementById('noBtn').style.display = 'none';
             document.querySelector('p').style.display = 'none';
+            document.querySelector('h1').innerText = 'أنتِ أروع أقداري 💖';
             document.getElementById('loveMessage').style.display = 'block';
         }
     </script>
-
 </body>
 </html>
