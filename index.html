@@ -1,190 +1,1157 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إهداء خاص وعصري ❤️</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Cairo', 'Tahoma', sans-serif;
-            overflow: hidden;
-            position: relative;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#120812">
 
-        /* خلفية القلوب المتحركة */
-        .floating-heart {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 20px;
-            animation: floatUp 6s linear infinite;
-            z-index: 0;
-            user-select: none;
-        }
+<title>إهداء من القلب ❤️</title>
 
-        @keyframes floatUp {
-            0% {
-                transform: translateY(100vh) scale(0.5);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-10vh) scale(1.2);
-                opacity: 0;
-            }
-        }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap');
 
-        .card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 40px 30px;
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            max-width: 420px;
-            width: 90%;
-            z-index: 10;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.5s ease;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        h1 {
-            color: #d63384;
-            margin-bottom: 15px;
-            font-size: 26px;
-            font-weight: 700;
-        }
+:root {
+    --pink: #ff4f81;
+    --rose: #ff789f;
+    --red: #e92d62;
+    --gold: #ffd88a;
+    --white: #fff;
+    --glass: rgba(255,255,255,.10);
+    --border: rgba(255,255,255,.20);
+}
 
-        p {
-            color: #444;
-            font-size: 17px;
-            margin-bottom: 35px;
-            line-height: 1.6;
-        }
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            position: relative;
-            min-height: 50px;
-        }
+body {
+    font-family: 'Cairo', sans-serif;
+    overflow: hidden;
+    color: white;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,75,130,.28), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255,120,160,.20), transparent 30%),
+        linear-gradient(135deg, #090509, #1b0b16 45%, #090509);
+}
 
-        button {
-            padding: 12px 30px;
-            font-size: 16px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+/* =========================
+   الخلفية
+========================= */
 
-        #yesBtn {
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
-            color: white;
-            z-index: 2;
-        }
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -5;
+}
 
-        #yesBtn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 65, 108, 0.4);
-        }
+.glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: .25;
+    animation: glowMove 10s infinite alternate ease-in-out;
+}
 
-        #noBtn {
-            background-color: #e0e0e0;
-            color: #555;
-            position: absolute;
-            right: 20%;
-            z-index: 1;
-        }
+.glow.one {
+    background: #ff2165;
+    top: -100px;
+    right: -80px;
+}
 
-        .hidden-message {
-            display: none;
-            margin-top: 20px;
-            color: #2b9348;
-            font-weight: bold;
-            font-size: 19px;
-            animation: fadeIn 0.8s ease forwards;
-        }
+.glow.two {
+    background: #a313ff;
+    bottom: -120px;
+    left: -100px;
+    animation-delay: 2s;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+@keyframes glowMove {
+    from {
+        transform: translate(0,0) scale(1);
+    }
+    to {
+        transform: translate(100px,60px) scale(1.25);
+    }
+}
+
+/* النجوم */
+
+.stars {
+    position: absolute;
+    inset: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: .6;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%,100% {
+        opacity: .15;
+        transform: scale(.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* =========================
+   القلوب
+========================= */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+    pointer-events: none;
+    opacity: 0;
+    animation: heartFloat linear forwards;
+    z-index: 1;
+    filter: drop-shadow(0 0 10px rgba(255,80,130,.5));
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(.5);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .8;
+    }
+
+    50% {
+        transform: translateY(-50vh) rotate(15deg) scale(1);
+    }
+
+    100% {
+        transform: translateY(-115vh) rotate(-20deg) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   شاشة البداية
+========================= */
+
+.intro {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+    background: rgba(5,2,5,.75);
+    backdrop-filter: blur(20px);
+    transition: 1s ease;
+}
+
+.intro.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+}
+
+.intro-box {
+    text-align: center;
+    max-width: 500px;
+    animation: introAppear 1.5s ease;
+}
+
+@keyframes introAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.small-heart {
+    font-size: 45px;
+    margin-bottom: 20px;
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.25);
+    }
+    30% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.15);
+    }
+}
+
+.intro-box h2 {
+    font-family: 'Amiri', serif;
+    font-size: clamp(32px, 8vw, 55px);
+    margin-bottom: 12px;
+}
+
+.intro-box p {
+    color: rgba(255,255,255,.7);
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.enter-btn {
+    border: 1px solid rgba(255,255,255,.25);
+    background: linear-gradient(135deg, #ff3f73, #c71d51);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow:
+        0 10px 35px rgba(255,40,100,.3),
+        inset 0 1px rgba(255,255,255,.3);
+    transition: .3s;
+}
+
+.enter-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 15px 45px rgba(255,40,100,.45);
+}
+
+/* =========================
+   المحتوى الرئيسي
+========================= */
+
+.main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    position: relative;
+    width: min(92vw, 560px);
+    padding: 45px 35px;
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.15),
+            rgba(255,255,255,.045)
+        );
+
+    border: 1px solid var(--border);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.45),
+        inset 0 1px rgba(255,255,255,.2);
+
+    text-align: center;
+
+    animation: cardAppear 1.3s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* إطار داخلي */
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border-radius: 27px;
+    border: 1px solid rgba(255,255,255,.07);
+    pointer-events: none;
+}
+
+/* علامة القلب */
+
+.logo-heart {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle, rgba(255,255,255,.15), transparent 65%),
+        linear-gradient(135deg, #ff5c88, #cf164d);
+
+    box-shadow:
+        0 0 40px rgba(255,50,110,.35),
+        inset 0 1px rgba(255,255,255,.4);
+
+    font-size: 32px;
+
+    animation: heartbeat 1.7s infinite;
+}
+
+.tag {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+h1 {
+    font-family: 'Amiri', serif;
+    font-size: clamp(34px, 8vw, 52px);
+    line-height: 1.3;
+    margin-bottom: 15px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ffd2df,
+        #fff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    color: rgba(255,255,255,.72);
+    line-height: 2;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   الاسم
+========================= */
+
+.name {
+    font-family: 'Amiri', serif;
+    font-size: 30px;
+    color: #ffd7e2;
+    margin: 8px 0 20px;
+
+    text-shadow:
+        0 0 20px rgba(255,100,150,.4);
+}
+
+/* =========================
+   الخط الفاصل
+========================= */
+
+.divider {
+    width: 100px;
+    height: 1px;
+    margin: 20px auto 25px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,216,138,.8),
+        transparent
+    );
+}
+
+/* =========================
+   السؤال
+========================= */
+
+.question {
+    font-family: 'Amiri', serif;
+    font-size: clamp(22px, 5vw, 29px);
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+/* =========================
+   الأزرار
+========================= */
+
+.buttons {
+    position: relative;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.yes {
+    position: relative;
+    z-index: 5;
+
+    padding: 14px 30px;
+    border-radius: 100px;
+
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+
+    background: linear-gradient(
+        135deg,
+        #ff477b,
+        #d71951
+    );
+
+    box-shadow:
+        0 10px 30px rgba(255,40,100,.3),
+        inset 0 1px rgba(255,255,255,.4);
+}
+
+.yes:hover {
+    transform: translateY(-3px) scale(1.06);
+    box-shadow:
+        0 15px 40px rgba(255,40,100,.45);
+}
+
+.no {
+    position: absolute;
+    padding: 12px 25px;
+    border-radius: 100px;
+
+    background: rgba(255,255,255,.09);
+    color: rgba(255,255,255,.75);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    font-size: 14px;
+
+    left: 25%;
+}
+
+/* =========================
+   الرسالة النهائية
+========================= */
+
+.success {
+    display: none;
+    animation: successIn 1s ease forwards;
+}
+
+@keyframes successIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.success-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+    animation: heartbeat 1.3s infinite;
+}
+
+.success h2 {
+    font-family: 'Amiri', serif;
+    font-size: 38px;
+    margin-bottom: 15px;
+    color: #ffd5e1;
+}
+
+.success p {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    line-height: 2;
+    color: rgba(255,255,255,.9);
+}
+
+.signature {
+    margin-top: 25px;
+    color: var(--gold);
+    font-family: 'Amiri', serif;
+    font-size: 23px;
+}
+
+/* =========================
+   مشغل الموسيقى
+========================= */
+
+.music-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.18);
+
+    color: white;
+    font-size: 18px;
+
+    backdrop-filter: blur(15px);
+
+    z-index: 50;
+}
+
+.music-btn.playing {
+    animation: musicPulse 1s infinite alternate;
+}
+
+@keyframes musicPulse {
+    from {
+        box-shadow: 0 0 0 rgba(255,70,120,0);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(255,70,120,.6);
+    }
+}
+
+/* =========================
+   رسالة صغيرة
+========================= */
+
+.counter {
+    margin-top: 25px;
+    color: rgba(255,255,255,.4);
+    font-size: 11px;
+}
+
+/* =========================
+   تأثير الفلاش
+========================= */
+
+.flash {
+    position: fixed;
+    inset: 0;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.flash.active {
+    animation: flash .7s ease;
+}
+
+@keyframes flash {
+    0% { opacity: 0; }
+    20% { opacity: .8; }
+    100% { opacity: 0; }
+}
+
+/* =========================
+   موبايل
+========================= */
+
+@media (max-width: 600px) {
+
+    .card {
+        padding: 35px 22px;
+        border-radius: 30px;
+    }
+
+    .logo-heart {
+        width: 65px;
+        height: 65px;
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .question {
+        font-size: 22px;
+    }
+
+    .buttons {
+        height: 100px;
+    }
+
+    .yes {
+        padding: 13px 22px;
+    }
+
+    .no {
+        left: auto;
+        right: 15px;
+    }
+
+    .success h2 {
+        font-size: 32px;
+    }
+
+    .success p {
+        font-size: 19px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="card">
-        <h1>إلى الشخص الأغلى ❤️</h1>
-        <p>هل تقبلين أن تكوني جزءاً أجمل من كل أيامي القادمة، وأن نبقى معاً دائماً؟</p>
-        
-        <div class="buttons" id="btnContainer">
-            <button id="yesBtn" onclick="showLove()">نعم بالتأكيد ❤️</button>
-            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">لا</button>
-        </div>
+<!-- =========================
+     الخلفية
+========================= -->
 
-        <div id="loveMessage" class="hidden-message">
-            تم قبول الطلب بنجاح! 🥰✨<br>أنتِ أجمل اختيار في عمري كله.
-        </div>
+<div class="background">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+    <div class="stars" id="stars"></div>
+</div>
+
+<div class="flash" id="flash"></div>
+
+<!-- =========================
+     شاشة الدخول
+========================= -->
+
+<div class="intro" id="intro">
+
+    <div class="intro-box">
+
+        <div class="small-heart">❤️</div>
+
+        <h2>هناك شيء أريد أن أقوله لكِ...</h2>
+
+        <p>
+            شيء صغير في حجمه...
+            لكنه كبير جداً في قلبي.
+        </p>
+
+        <button class="enter-btn" onclick="enterLove()">
+            افتحي رسالتي ❤️
+        </button>
+
     </div>
 
-    <script>
-        // توليد قلوب متحركة في الخلفية تلقائياً
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('floating-heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            document.body.appendChild(heart);
+</div>
 
-            setTimeout(() => {
-                heart.remove();
-            }, 6000);
-        }
-        setInterval(createHeart, 400);
+<!-- =========================
+     زر الموسيقى
+========================= -->
 
-        // حركة هروب زر "لا" بذكاء ليبقى داخل الشاشة
-        function moveButton() {
-            const noBtn = document.getElementById('noBtn');
-            const card = document.querySelector('.card').getBoundingClientRect();
-            
-            // حساب مساحات عشوائية داخل نافذة المتصفح مع ضمان عدم خروجه كلياً
-            const maxX = window.innerWidth - noBtn.offsetWidth - 40;
-            const maxY = window.innerHeight - noBtn.offsetHeight - 40;
-            
-            const randomX = Math.max(20, Math.floor(Math.random() * maxX));
-            const randomY = Math.max(20, Math.floor(Math.random() * maxY));
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+    ♫
+</button>
 
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-        }
+<!-- ضع ملف music.mp3 بجانب index.html -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-        // عند الضغط على نعم
-        function showLove() {
-            document.getElementById('yesBtn').style.display = 'none';
-            document.getElementById('noBtn').style.display = 'none';
-            document.querySelector('p').style.display = 'none';
-            document.querySelector('h1').innerText = 'أنتِ أروع أقداري 💖';
-            document.getElementById('loveMessage').style.display = 'block';
-        }
-    </script>
+<!-- =========================
+     المحتوى
+========================= -->
+
+<main class="main">
+
+    <section class="card" id="card">
+
+        <div class="logo-heart">
+            ❤️
+        </div>
+
+        <div class="tag">
+            رسالة من القلب
+        </div>
+
+        <h1 id="title">
+            إلى أجمل إنسانة
+        </h1>
+
+        <div class="name" id="name">
+            حبيبتي
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="subtitle" id="introText">
+            بعض الأشخاص يدخلون حياتنا صدفة...
+            ثم يصبح وجودهم أجمل شيء حدث لنا.
+        </p>
+
+        <div id="questionSection">
+
+            <div class="question" id="question">
+                هل تقبلين أن تكوني أجمل جزء
+                من كل أيامي القادمة؟ ❤️
+            </div>
+
+            <div class="buttons" id="buttons">
+
+                <button class="yes" onclick="sayYes()">
+                    نعم، بالتأكيد ❤️
+                </button>
+
+                <button class="no" id="noBtn">
+                    لا 😶
+                </button>
+
+            </div>
+
+            <div class="counter" id="counter">
+                حاولي الضغط على "لا" إذا استطعتِ 😏
+            </div>
+
+        </div>
+
+        <!-- =========================
+             النجاح
+        ========================= -->
+
+        <div class="success" id="success">
+
+            <div class="success-icon">
+                💖
+            </div>
+
+            <h2>
+                كنت أعرف أنكِ ستختارين قلبي
+            </h2>
+
+            <p id="finalMessage">
+                ومن هذه اللحظة...
+                أتمنى أن تكون كل الأيام القادمة
+                شاهدة على أجمل شيء بيننا.
+            </p>
+
+            <div class="signature" id="signature">
+                — من شخص اختاركِ من قلبه ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+
+/* =====================================================
+   CONFIG
+   عدّل هذه الأشياء فقط
+===================================================== */
+
+const CONFIG = {
+
+    herName: "نسومتي",
+
+    title: "إلى أجمل إنسانة",
+
+    introText:
+        "بعض الأشخاص يدخلون حياتنا صدفة... ثم يصبح وجودهم أجمل شيء حدث لنا.",
+
+    question:
+        "هل تقبلين أن تكوني أجمل جزء من كل أيامي القادمة؟ ❤️",
+
+    finalMessage:
+        "ومن هذه اللحظة... أتمنى أن تكون كل الأيام القادمة شاهدة على أجمل شيء بيننا. وأن تبقى ضحكتك دائماً سبباً لابتسامتي.",
+
+    signature:
+        "— من شخص اختاركِ من قلبه ❤️"
+
+};
+
+
+/* =====================================================
+   تطبيق الإعدادات
+===================================================== */
+
+document.getElementById("name").textContent = CONFIG.herName;
+document.getElementById("title").textContent = CONFIG.title;
+document.getElementById("introText").textContent = CONFIG.introText;
+document.getElementById("question").textContent = CONFIG.question;
+document.getElementById("finalMessage").textContent = CONFIG.finalMessage;
+document.getElementById("signature").textContent = CONFIG.signature;
+
+
+/* =====================================================
+   إنشاء النجوم
+===================================================== */
+
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 100; i++) {
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 4 + "s";
+
+    star.style.opacity =
+        Math.random() * .7;
+
+    stars.appendChild(star);
+}
+
+
+/* =====================================================
+   الدخول
+===================================================== */
+
+function enterLove() {
+
+    document.getElementById("intro")
+        .classList.add("hide");
+
+    createBurst();
+
+    setTimeout(() => {
+
+        const music = document.getElementById("music");
+
+        music.play()
+            .then(() => {
+
+                document
+                    .getElementById("musicBtn")
+                    .classList.add("playing");
+
+            })
+            .catch(() => {});
+
+    }, 500);
+}
+
+
+/* =====================================================
+   القلوب المتحركة
+===================================================== */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const symbols = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘",
+        "✨"
+    ];
+
+    heart.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (14 + Math.random() * 24) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 7) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 13000);
+}
+
+setInterval(createHeart, 500);
+
+
+/* =====================================================
+   زر لا الهارب
+===================================================== */
+
+const noBtn = document.getElementById("noBtn");
+
+let noClicks = 0;
+
+const noMessages = [
+    "لا 😶",
+    "متأكدة؟ 🥺",
+    "فكري مرة ثانية ❤️",
+    "لا تستعجلي 😭",
+    "أنا ما أستاهل؟ 🥹",
+    "آخر فرصة 😌",
+    "مستحيل أقبل بـ لا 😂",
+    "جربي نعم ❤️"
+];
+
+function moveNoButton() {
+
+    noClicks++;
+
+    const btn =
+        document.getElementById("noBtn");
+
+    const margin = 15;
+
+    const maxX =
+        window.innerWidth -
+        btn.offsetWidth -
+        margin;
+
+    const maxY =
+        window.innerHeight -
+        btn.offsetHeight -
+        margin;
+
+    const x =
+        Math.max(
+            margin,
+            Math.random() * maxX
+        );
+
+    const y =
+        Math.max(
+            margin,
+            Math.random() * maxY
+        );
+
+    btn.style.position = "fixed";
+
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+
+    btn.textContent =
+        noMessages[
+            Math.min(
+                noClicks,
+                noMessages.length - 1
+            )
+        ];
+
+    document.getElementById("counter")
+        .textContent =
+        `محاولة رقم ${noClicks} 😏 ... ما زلتِ تستطيعين اختيار "نعم" ❤️`;
+}
+
+
+/* الكمبيوتر */
+
+noBtn.addEventListener(
+    "mouseenter",
+    moveNoButton
+);
+
+
+/* الهاتف */
+
+noBtn.addEventListener(
+    "touchstart",
+    function(e) {
+
+        e.preventDefault();
+
+        moveNoButton();
+
+    },
+    { passive: false }
+);
+
+
+/* الضغط */
+
+noBtn.addEventListener(
+    "click",
+    moveNoButton
+);
+
+
+/* =====================================================
+   نعم ❤️
+===================================================== */
+
+function sayYes() {
+
+    const flash =
+        document.getElementById("flash");
+
+    flash.classList.add("active");
+
+    setTimeout(() => {
+        flash.classList.remove("active");
+    }, 700);
+
+    document.getElementById("questionSection")
+        .style.display = "none";
+
+    document.getElementById("success")
+        .style.display = "block";
+
+    createMassiveHearts();
+
+    createBurst();
+
+    const music =
+        document.getElementById("music");
+
+    music.play().catch(() => {});
+
+}
+
+
+/* =====================================================
+   انفجار القلوب
+===================================================== */
+
+function createBurst() {
+
+    const symbols = [
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "✨",
+        "🌹"
+    ];
+
+    for (let i = 0; i < 30; i++) {
+
+        const heart =
+            document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() * symbols.length
+                )
+            ];
+
+        heart.style.left =
+            (35 + Math.random() * 30) + "vw";
+
+        heart.style.bottom =
+            (30 + Math.random() * 20) + "vh";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 25) + "px";
+
+        heart.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+}
+
+
+function createMassiveHearts() {
+
+    for (let i = 0; i < 100; i++) {
+
+        setTimeout(() => {
+            createHeart();
+        }, i * 30);
+
+    }
+}
+
+
+/* =====================================================
+   الموسيقى
+===================================================== */
+
+function toggleMusic() {
+
+    const music =
+        document.getElementById("music");
+
+    const btn =
+        document.getElementById("musicBtn");
+
+    if (music.paused) {
+
+        music.play()
+            .then(() => {
+
+                btn.classList.add("playing");
+
+            })
+            .catch(() => {
+
+                alert(
+                    "ضع ملف music.mp3 بجانب ملف index.html أولاً ❤️"
+                );
+
+            });
+
+    } else {
+
+        music.pause();
+
+        btn.classList.remove("playing");
+    }
+}
+
+
+/* =====================================================
+   منع تحديد النص بشكل مزعج
+===================================================== */
+
+document.addEventListener(
+    "contextmenu",
+    function(e) {
+        // يمكنك حذف هذا إذا أردت السماح بالضغط يمين
+        // e.preventDefault();
+    }
+);
+
+</script>
+
 </body>
 </html>
